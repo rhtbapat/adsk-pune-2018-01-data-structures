@@ -7,7 +7,7 @@ const Queue = function() {
 };
 
 Queue.prototype.enqueue = function(value) {
-  if (value !== undefined /*&& value instanceof Number*/){
+  if (value !== undefined){
     if(Object.keys(this.storage) === undefined){
       this.storage[0] = value;
     }
@@ -51,7 +51,6 @@ Queue.prototype.size = function() {
   else{
     return Object.keys(this.storage).length;
   }
-  //return Object.keys(this.storage).length;
 };
 
 
