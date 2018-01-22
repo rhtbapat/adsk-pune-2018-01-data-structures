@@ -7,15 +7,39 @@ const Tree = function(value) {
   // your code here
   newTree.children = null;  // fix me
 
+  _.extend(newTree,treeMethods);
+
   return newTree;
 };
 
 const treeMethods = {};
 
 treeMethods.addChild = function(value) {
+  let newChild = Tree(value);
+  if(this.children === null){
+    this.children = [];
+  }
+  this.children[this.children.length] = newChild;
 };
 
 treeMethods.contains = function(target) {
+  if(this.children === null){
+    return false;
+  }
+  else{
+    if(this.children.length === 0){
+      return false;
+    }
+    else{
+      for(let i = 0 ; i < this.children.length ; i++){
+        let child = this.children[i];
+        if(child.value===target){
+          return true;
+        }
+      }
+    }
+  }
+  return false;
 };
 
 
