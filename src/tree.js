@@ -22,25 +22,6 @@ treeMethods.addChild = function(value) {
   this.children[this.children.length] = newChild;
 };
 
-treeMethods.childConstains = function(target){
-  let contains = false;
-  if(this.children === null){
-    if(this.value===target){
-      return true;
-    }
-    return contains;
-  }
-  else{
-    for(let i = 0 ; i < this.children.length ; i++){
-      let subChild = this.children[i];
-      if(childConstains(subChild) === true){
-        return true;
-      }
-    }
-  }
-  return contains;
-}
-
 treeMethods.contains = function(target) {
   if(this.children === null){
     return false;
@@ -52,7 +33,7 @@ treeMethods.contains = function(target) {
     else{
       for(let i = 0 ; i < this.children.length ; i++){
         let child = this.children[i];
-        if(child.childConstains(target)===true)
+        if(child.contains(target)===true)
         {
           return true;
         }
